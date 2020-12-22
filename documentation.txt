@@ -13,11 +13,9 @@ Removes all spaces in place and returns the result. This is a conveniency method
 
 unindent(policyrequest = :plain) -> [integer, string]
 Removes white space from the beginning of the string, and returns an array containing the number of characters removed and a new string with the result. Policy can be :plain or :extra. :extra means removing one more character, which is not included in the number returned. Default for policy is :plain.
-:extra functionality is not implemented yet.
 
 unindent!(policyrequest = nil) -> [integer, string]
 Same as unindent, but removes characters in place. Policy works the same.
-:extra functionality is not implemented yet.
 
 include_any?(str = "") -> boolean
 Returns true if any characters of str are in the original string. If no parameter is given, it returns false.
