@@ -13,9 +13,11 @@ Removes all spaces in place and returns the result. This is a conveniency method
 
 unindent(policyrequest = :plain) -> [integer, string]
 Removes white space from the beginning of the string, and returns an array containing the number of characters removed and a new string with the result. Policy can be :plain or :extra. :extra means removing one more character, which is not included in the number returned. Default for policy is :plain.
+:extra functionality is not implemented yet.
 
 unindent!(policyrequest = nil) -> [integer, string]
 Same as unindent, but removes characters in place. Policy works the same.
+:extra functionality is not implemented yet.
 
 include_any?(str = "") -> boolean
 Returns true if any characters of str are in the original string. If no parameter is given, it returns false.
@@ -49,7 +51,11 @@ line_wrap!(integer) -> string
 Breakes the string into lines in place as line_wrap, returning the result.
 
 frame_wrap(integer, policyrequest = :both)
-Works as line_wrap, but also adds a left and right frame to the lines. The extra frame characters are counted into width, so a 70-character-wide framed text will have exactly 70 characters in each line, with no more than 68 characters of text. Policy can be :both, :top, :bottom or :none, the default is :both. Top and bottom frames are extra lines added.
+Works as line_wrap, but also adds a left and right frame to the lines. The extra frame characters and their space are counted into width, so a 70-character-wide framed text will have exactly 70 characters in each line, with no more than 66 characters of text. Policy can be :both, :top, :bottom or :none, the default is :both, setting top and bottom frames. Top and bottom frames are extra lines added to the result.
 
 frame_wrap!(integer, policyrequest = :both)
 Does the same as frame_wrap in place, and returns the result.
+
+========= class Integer
+to_serial -> string
+Returns a string with short serial notation. 1 -> '1st', 9 -> '9th', etc.
