@@ -1,0 +1,55 @@
+========= class String
+remove_chars(chars) -> string
+Return a new string with all the characters in chars removed from the original.
+
+remove_chars!(chars) -> string
+Removes all the characters in chars in place and returns the result.
+
+nospace -> string
+Returns a new string with all spaces removed from the original. This is a conveniency method.
+
+nospace! -> string
+Removes all spaces in place and returns the result. This is a conveniency method.
+
+unindent(policyrequest = :plain) -> [integer, string]
+Removes white space from the beginning of the string, and returns an array containing the number of characters removed and a new string with the result. Policy can be :plain or :extra. :extra means removing one more character, which is not included in the number returned. Default for policy is :plain.
+
+unindent!(policyrequest = nil) -> [integer, string]
+Same as unindent, but removes characters in place. Policy works the same.
+
+include_any?(str = "") -> boolean
+Returns true if any characters of str are in the original string. If no parameter is given, it returns false.
+
+int_eval_all -> [integer, ...]
+Returns all the extractable integers from the string in an array. The array will be empty if there are no integers found.
+"Hello world." -> []
+"-000ddsf444" -> [0, 444]
+"+fghf--+-7gg454" -> [-7, 454]
+
+int_eval_strict -> integer or nil
+Returns nil if the string is not a perfectly formed integer, otherwise the extracted integer. Perfectly formed integer = only contains digits, '+' or '-', the latter two only as the first character.
+"443-23" -> nil
+"+864" -> 864
+"-000ddsf444" -> nil
+
+int_eval_front -> integer or nil
+Returns nil if an integer cannot be extracted from the beginning of the string, otherwise the extracted integer.
+"443-23" -> 443
+"+864" -> 864
+"-000ddsf444" -> 0
+"+fghf--+-7gg454" -> nil
+
+int_eval
+This is an alias for int_eval_front, for convenience.
+
+line_wrap(integer) -> string
+Returns a new string broken into lines with '\n', not breaking words, with each line not longer than the integer parameter.
+
+line_wrap!(integer) -> string
+Breakes the string into lines in place as line_wrap, returning the result.
+
+frame_wrap(integer, policyrequest = :both)
+Works as line_wrap, but also adds a left and right frame to the lines. The extra frame characters are counted into width, so a 70-character-wide framed text will have exactly 70 characters in each line, with no more than 68 characters of text. Policy can be :both, :top, :bottom or :none, the default is :both. Top and bottom frames are extra lines added.
+
+frame_wrap!(integer, policyrequest = :both)
+Does the same as frame_wrap in place, and returns the result.
