@@ -110,7 +110,7 @@ class String
 			end
 		end
 		
-		# sdd valid chunks to result
+		# add valid chunks to result
 		result = []
 		chunks.each do |chunk|
 			if chunk[0] == "v" then result << self[chunk[1]..chunk[2]].to_i end
