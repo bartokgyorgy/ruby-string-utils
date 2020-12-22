@@ -36,11 +36,16 @@ class String
 		return [indent, tmp]
 	end
 	
-	def unindent!
+	def unindent!(policyrequest = nil)
+		policy = policyrequest
+		if policy != :extra then policy = :plain end
 		orss = self.size
 		lstrip!
 		stss = self.size
 		indent = orss - stss
+		if policy == :extra
+			
+		end
 		return [indent, self]
 	end
 	
