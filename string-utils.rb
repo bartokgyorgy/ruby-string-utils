@@ -31,7 +31,7 @@ class String
 		stss = tmp.size
 		indent = orss - stss
 		if policy == :extra
-			
+			if tmp.size > 0 then tmp = tmp[1..-1] end
 		end
 		return [indent, tmp]
 	end
@@ -44,7 +44,7 @@ class String
 		stss = self.size
 		indent = orss - stss
 		if policy == :extra
-			
+			if tmp.size > 0 then tmp = tmp[1..-1] end
 		end
 		return [indent, self]
 	end
